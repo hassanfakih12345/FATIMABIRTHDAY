@@ -20,10 +20,11 @@
 
 #scroll-hint .arrows {
   display: flex;
-  flex-direction: column;
+  flex-direction: row; /* <-- أفقياً */
+  justify-content: center;
   align-items: center;
+  gap: 10px; /* مسافة بين الأسهم */
   margin-top: 8px;
-  gap: 4px;
   animation: arrows-bounce 1.5s infinite;
 }
 
@@ -34,6 +35,7 @@
   stroke-width: 2;
   fill: none;
 }
+
 
 @keyframes arrows-bounce {
   0%, 100% { transform: translateY(0); }
