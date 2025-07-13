@@ -1,15 +1,30 @@
+#scroll-hint {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+  animation: bounce 2s infinite;
+}
+
+#scroll-hint .scroll-text {
+  font-size: 1.5rem;
+  color: #e91e63;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 #scroll-hint .arrows {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 8px;
-  gap: 3px;
+  gap: 4px;
   animation: arrows-bounce 1.5s infinite;
-}
-
-#scroll-hint .arrows i {
-  color: #e91e63;
-  font-size: 18px;
 }
 
 #scroll-hint .arrows svg {
@@ -22,7 +37,11 @@
 
 @keyframes arrows-bounce {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(6px); }
+  50% { transform: translateY(5px); }
+}
+
+#scroll-hint.hidden {
+  opacity: 0;
 }
 
 #scroll-hint {
