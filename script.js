@@ -1,26 +1,4 @@
-// Scroll reveal effect
-const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
 
-window.addEventListener("scroll", () => {
-  fadeIns.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
-});
-
-let musicStarted = false;
-
-window.addEventListener("scroll", () => {
-  if (!musicStarted) {
-    const audio = document.getElementById("bg-music");
-    audio.play().catch((err) => {
-      console.log("❌ فشل تشغيل الصوت:", err);
-    });
-    musicStarted = true;
-  }
-});
 
 // Floating hearts animation
 const canvas = document.querySelector('.hearts');
