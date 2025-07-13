@@ -72,3 +72,29 @@ canvas.hearts {
   pointer-events: none;
   z-index: 100;
 }
+#play-btn {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(233, 30, 99, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  z-index: 1000;
+}
+
+#play-btn:hover {
+  background-color: #c2185b;
+  box-shadow: 0 8px 16px rgba(194, 24, 91, 0.7);
+}
+
+#play-btn:focus {
+  box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.7);
+}
