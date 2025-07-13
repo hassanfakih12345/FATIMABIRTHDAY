@@ -10,6 +10,18 @@ window.addEventListener("scroll", () => {
   });
 });
 
+let musicStarted = false;
+
+window.addEventListener("scroll", () => {
+  if (!musicStarted) {
+    const audio = document.getElementById("bg-music");
+    audio.play().catch((err) => {
+      console.log("❌ فشل تشغيل الصوت:", err);
+    });
+    musicStarted = true;
+  }
+});
+
 // Floating hearts animation
 const canvas = document.querySelector('.hearts');
 const ctx = canvas.getContext('2d');
