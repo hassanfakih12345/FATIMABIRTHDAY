@@ -2,13 +2,16 @@
   const scrollHint = document.getElementById('scroll-hint');
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      scrollHint.classList.add('hidden');
+    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+
+    if (scrollPercent > 0.1) {
+      scrollHint.classList.add('hidden'); // إخفاء العنصر
     } else {
-      scrollHint.classList.remove('hidden');
+      scrollHint.classList.remove('hidden'); // إظهاره
     }
   });
 </script>
+
 // Floating hearts animation
 const canvas = document.querySelector('.hearts');
 const ctx = canvas.getContext('2d');
