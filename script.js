@@ -1,3 +1,24 @@
+<script>
+  const audio = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+
+  function smoothScrollToBottom() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+
+  playBtn.addEventListener('click', () => {
+    audio.play().then(() => {
+      playBtn.style.display = 'none';
+      smoothScrollToBottom();
+      console.log("✅ الموسيقى اشتغلت والصفحة عم تنزل");
+    }).catch((err) => {
+      console.error("❌ ما قدرنا نشغل الصوت:", err);
+    });
+  });
+</script>
 
 
 // Floating hearts animation
