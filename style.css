@@ -1,6 +1,6 @@
 #scroll-hint {
   position: fixed;
-  top: 40%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
@@ -8,7 +8,7 @@
   animation: bounce 2s infinite;
   opacity: 1;
   transition: opacity 0.5s ease;
-  z-index: 99999; /* أعلى من الزر */
+  z-index: 9999; /* أعلى من الزر */
   font-weight: bold;
   pointer-events: none;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
