@@ -62,15 +62,3 @@ function animate() {
 
 animate();
 
-function startExperience() {
-  const music = document.getElementById('bg-music');
-
-  music.play().then(() => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
-  }).catch(() => {
-    alert("Tap again to enable music 🎵");
-  });
-}
