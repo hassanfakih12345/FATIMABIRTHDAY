@@ -88,10 +88,22 @@
 </head>
 <body>
  
-<button id="play-btn">LOVE🎵</button>
+ <button id="play-btn">شغّل الموسيقى 🎵</button>
+  <audio id="bg-music" src="8.mp3"></audio>
 
-<audio id="bg-music" src="8.mp3"></audio>
+  <script>
+    const audio = document.getElementById('bg-music');
+    const playBtn = document.getElementById('play-btn');
 
+    playBtn.addEventListener('click', () => {
+      audio.play().then(() => {
+        playBtn.style.display = 'none';
+        console.log('✅ الموسيقى شغّلت');
+      }).catch((error) => {
+        console.log('❌ خطأ في تشغيل الموسيقى:', error);
+      });
+    });
+  </script>
   
   <!-- Canvas for Floating Hearts -->
   <canvas class="hearts"></canvas>
