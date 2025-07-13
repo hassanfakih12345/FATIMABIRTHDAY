@@ -85,6 +85,11 @@
   </style>
 </head>
 <body>
+ 
+<audio id="bg-music" src="8.mp3"></audio>
+
+  <!-- زر التشغيل -->
+<button id="play-btn">LOVE🎵</button>
   
   <!-- Canvas for Floating Hearts -->
   <canvas class="hearts"></canvas>
@@ -138,6 +143,19 @@
 </div>
 </section>
   
+  <script>
+    const audio = document.getElementById('bg-music');
+    const playBtn = document.getElementById('play-btn');
+
+    playBtn.addEventListener('click', () => {
+      audio.play().then(() => {
+        playBtn.style.display = 'none';
+        console.log('✅ الموسيقى شغّلت');
+      }).catch((error) => {
+        console.log('❌ خطأ في تشغيل الموسيقى:', error);
+      });
+    });
+  </script>
   <script>
     // Scroll Reveal for Elements
     const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
