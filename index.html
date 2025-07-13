@@ -145,27 +145,6 @@
 </div>
 </section>
   
-<script>
-  const audio = document.getElementById('bg-music');
-  const playBtn = document.getElementById('play-btn');
-
-  playBtn.addEventListener('click', () => {
-    audio.play().then(() => {
-      // إخفاء الزر
-      playBtn.style.display = 'none';
-
-      // تنفيذ السحب التلقائي للصفحة
-      window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: 'smooth'  // سحب ناعم
-      });
-
-      console.log('✅ الموسيقى شغّلت وبدأ السحب التلقائي');
-    }).catch((error) => {
-      console.log('❌ خطأ في تشغيل الموسيقى:', error);
-    });
-  });
-</script>
 
   <script>
     // Scroll Reveal for Elements
