@@ -65,16 +65,12 @@ animate();
 function startExperience() {
   const music = document.getElementById('bg-music');
 
-  if (music) {
-    music.play().catch(() => {
-      alert("Tap again to enable audio 🎵");
-    });
-  }
-
-  setTimeout(() => {
+  music.play().then(() => {
     window.scrollTo({
       top: window.innerHeight,
       behavior: 'smooth'
     });
-  }, 500);
+  }).catch(() => {
+    alert("Tap again to enable music 🎵");
+  });
 }
