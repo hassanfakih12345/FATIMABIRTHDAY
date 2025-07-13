@@ -128,7 +128,7 @@ animate();
   animate();
 </script>
 
-script>
+<script>
   const audio = document.getElementById('bg-music');
   const playBtn = document.getElementById('play-btn');
 
