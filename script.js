@@ -61,18 +61,19 @@ function animate() {
 }
 
 animate();
+
 function startExperience() {
   const music = document.getElementById('bg-music');
 
-  // Try to play the music
-  music.play().catch(e => {
-    alert("Tap again to enable audio 🎵");
-  });
+  if (music) {
+    music.play().catch(() => {
+      alert("Tap again to enable audio 🎵");
+    });
+  }
 
-  // Smooth scroll to first section after 0.5s
   setTimeout(() => {
     window.scrollTo({
-      top: window.innerHeight, // ينزل شاشة وحدة
+      top: window.innerHeight,
       behavior: 'smooth'
     });
   }, 500);
