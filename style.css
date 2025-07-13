@@ -13,10 +13,11 @@
 }
 
 #scroll-hint .scroll-text {
-  font-size: 1.5rem;
+  font-size: 2rem; /* تم تكبيره */
   color: #e91e63;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
+
 
 #scroll-hint .arrows {
   display: flex;
@@ -29,12 +30,10 @@
 }
 
 #scroll-hint .arrows svg {
-  width: 24px;
-  height: 24px;
-  stroke: #e91e63;
-  stroke-width: 2;
-  fill: none;
+  width: 28px;
+  height: 28px;
 }
+
 
 
 @keyframes arrows-bounce {
