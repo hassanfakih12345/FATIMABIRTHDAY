@@ -1,6 +1,14 @@
+<script>
+  const scrollHint = document.getElementById('scroll-hint');
 
-
-
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 20) {
+      scrollHint.classList.add('hidden');
+    } else {
+      scrollHint.classList.remove('hidden');
+    }
+  });
+</script>
 // Floating hearts animation
 const canvas = document.querySelector('.hearts');
 const ctx = canvas.getContext('2d');
