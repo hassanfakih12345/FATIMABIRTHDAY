@@ -128,3 +128,16 @@ animate();
   animate();
 </script>
 
+script>
+  const audio = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+
+  playBtn.addEventListener('click', () => {
+    audio.play().then(() => {
+      playBtn.style.display = 'none';
+      console.log('✅ الموسيقى شغّلت');
+    }).catch((error) => {
+      console.log('❌ خطأ في تشغيل الموسيقى:', error);
+    });
+  });
+</script>
