@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday My Love</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&family=Dancing+Script&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffffff);
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 60px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Scroll-in Animations */
+    .fade-in-image,
+    .fade-in-caption,
+    .fade-in-text {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1.2s ease;
+    }
+
+    .fade-in-image.show,
+    .fade-in-caption.show,
+    .fade-in-text.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Image Styling */
+    img.fade-in-image {
+      width: 250px;
+      max-width: 80%;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      margin-bottom: 10px;
+      transition: transform 0.6s ease;
+    }
+
+    /* Caption Style (Special Font) */
+    .fade-in-caption {
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.6em;
+      color: #c2185b;
+      margin-bottom: 50px;
+    }
+
+    /* Heading & Text */
+    h1, h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3em;
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 600px;
+      line-height: 1.8;
+    }
+
+    canvas.hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Canvas for Floating Hearts -->
+  <canvas class="hearts"></canvas>
+
+  <!-- Sections with Text and Images -->
+  <section>
+    <div class="fade-in-text">
+      <h1>Happy Birthday, My Love</h1>
+      <p>Today isn’t just your birthday — it’s the day my whole world changed for the better.</p>
+    </div>
+  </section>
+
+  <section>
+    <img class="fade-in-image" src="your-image-1.jpg" alt="Memory 1">
+    <p class="fade-in-caption">From the first moment I saw you, I knew my heart had found its home.</p>
+  </section>
+
+  <section>
+    <img class="fade-in-image" src="your-image-2.jpg" alt="Your Smile">
+    <p class="fade-in-caption">Your smile lights up my days, your voice calms my soul.</p>
+  </section>
+
+  <section>
+    <div class="fade-in-text">
+      <h2>Falling for You, Again and Again</h2>
+      <p>Every day with you is a beautiful chapter in the story of us.</p>
+    </div>
+  </section>
+
+  <section>
+    <img class="fade-in-image" src="your-image-3.jpg" alt="Love Moment">
+    <p class="fade-in-caption">You are the reason I believe in magic, in love, and in forever.</p>
+  </section>
+
+  <section>
+    <div class="fade-in-text">
+      <h2>This isn’t the end...</h2>
+      <p>It’s just the beginning of a forever story — you & me, always. ❤️</p>
+    </div>
+  </section>
+
+  <script>
+    // Scroll Reveal for Elements
+    const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
+
+    window.addEventListener("scroll", () => {
+      fadeIns.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+          el.classList.add("show");
+        }
+      });
+    });
+
+    // Floating Hearts Animation
+    const canvas = document.querySelector('.hearts');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const hearts = [];
+
+    function Heart() {
+      this.x = Math.random() * canvas.width;
+      this.y = canvas.height + Math.random() * 100;
+      this.size = 15 + Math.random() * 10;
+      this.speed = 1 + Math.random();
+      this.alpha = 0.5 + Math.random() * 0.5;
+    }
+
+    Heart.prototype.draw = function () {
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = 'pink';
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.bezierCurveTo(this.x + this.size, this.y - this.size,
+        this.x + this.size * 2, this.y + this.size,
+        this.x, this.y + this.size * 2);
+      ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size,
+        this.x - this.size, this.y - this.size,
+        this.x, this.y);
+      ctx.fill();
+    };
+
+    Heart.prototype.update = function () {
+      this.y -= this.speed;
+      if (this.y < -this.size * 2) {
+        this.y = canvas.height + Math.random() * 100;
+        this.x = Math.random() * canvas.width;
+      }
+    };
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      while (hearts.length < 20) {
+        hearts.push(new Heart());
+      }
+      hearts.forEach(h => {
+        h.update();
+        h.draw();
+      });
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
+</body>
+</html>

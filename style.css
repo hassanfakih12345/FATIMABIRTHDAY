@@ -1,0 +1,74 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom, #fff0f5, #ffffff);
+  color: #444;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Scroll-in Animations */
+.fade-in-image,
+.fade-in-caption,
+.fade-in-text {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
+}
+
+.fade-in-image.show,
+.fade-in-caption.show,
+.fade-in-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Image Styling */
+img.fade-in-image {
+  width: 250px;
+  max-width: 80%;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  transition: transform 0.6s ease;
+}
+
+/* Caption Font */
+.fade-in-caption {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6em;
+  color: #c2185b;
+  margin-bottom: 50px;
+}
+
+/* Headers and Paragraphs */
+h1, h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #e91e63;
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 1.3em;
+  max-width: 600px;
+  line-height: 1.8;
+}
+
+/* Floating Hearts Canvas */
+canvas.hearts {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100;
+}
