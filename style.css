@@ -127,3 +127,34 @@ canvas.hearts {
 #play-btn:focus {
   box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.7);
 }
+@media (max-width: 768px) {
+  h1, h2 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 1.1em;
+    padding: 0 10px;
+  }
+
+  #play-btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  #scroll-hint {
+    font-size: 1.2rem;
+    top: 30%; /* أقرب للأعلى على الموبايل */
+  }
+
+  img.fade-in-image {
+    width: 90%;
+    border-radius: 10px;
+  }
+}
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
