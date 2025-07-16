@@ -1,3 +1,14 @@
+
+
+  .timeline-carousel h2 {
+    font-size: 2em;
+  }
+
+  .carousel-item .caption {
+    font-size: 0.95em;
+  }
+}
+
 .timeline-section {
   padding: 80px 20px;
   background: #fff5f8;
@@ -263,10 +274,20 @@ canvas.hearts {
 #play-btn:focus {
   box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.7);
 }
-@media (max-width: 768px) {
-  h1, h2 {
+@media (max-width: 600px) {
+  .carousel-item {
+    width: 200px;
+  }
+
+  .timeline-carousel h2 {
     font-size: 2em;
   }
+
+  .carousel-item .caption {
+    font-size: 0.95em;
+  }
+}
+
 
   p {
     font-size: 1.1em;
