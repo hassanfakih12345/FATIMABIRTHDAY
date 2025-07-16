@@ -1,3 +1,47 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const items = document.querySelectorAll('.timeline-carousel .carousel-item');
+  const leftBtn = document.querySelector('.timeline-carousel .carousel-arrow.left');
+  const rightBtn = document.querySelector('.timeline-carousel .carousel-arrow.right');
+  let current = 0;
+
+  function showItem(idx) {
+    items.forEach((item, i) => {
+      item.classList.toggle('active', i === idx);
+    });
+  }
+
+  leftBtn.addEventListener('click', () => {
+    current = (current - 1 + items.length) % items.length;
+    showItem(current);
+  });
+
+  rightBtn.addEventListener('click', () => {
+    current = (current + 1) % items.length;
+    showItem(current);
+  });
+
+  // Swipe support (touch devices)
+  let startX = null;
+  document.querySelector('.timeline-carousel .carousel-frame').addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+  document.querySelector('.timeline-carousel .carousel-frame').addEventListener('touchend', e => {
+    if (startX === null) return;
+    let endX = e.changedTouches[0].clientX;
+    if (endX - startX > 50) { // swipe right
+      current = (current - 1 + items.length) % items.length;
+      showItem(current);
+    } else if (startX - endX > 50) { // swipe left
+      current = (current + 1) % items.length;
+      showItem(current);
+    }
+    startX = null;
+  });
+
+  showItem(current);
+});
+
+
 const scrollHint = document.getElementById('scroll-hint');
 
 window.addEventListener('scroll', () => {
