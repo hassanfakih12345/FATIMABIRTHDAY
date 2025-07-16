@@ -1,3 +1,57 @@
+.timeline-section {
+  padding: 80px 20px;
+  background: #fff5f8;
+}
+
+.timeline-section h2 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3em;
+  color: #e91e63;
+  margin-bottom: 50px;
+}
+
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding-left: 20px;
+  border-left: 4px solid #e91e63;
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  width: 20px;
+  height: 20px;
+  background-color: #e91e63;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 4px #f8bbd0;
+}
+
+.timeline-date {
+  font-weight: bold;
+  color: #c2185b;
+  margin-bottom: 5px;
+  font-size: 1.2em;
+}
+
+.timeline-content {
+  font-size: 1.1em;
+  color: #555;
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+}
+
 .fade-in-text {
   margin-top: 40px;
   opacity: 0;
