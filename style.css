@@ -1,19 +1,19 @@
 .timeline-carousel .carousel-bg {
   background: #fff5f8;
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 0 8px 32px rgba(233, 30, 99, 0.08);
-  padding: 30px 20px;
+  padding: 18px 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  max-width: 400px;
+  max-width: 98vw;
   margin: 0 auto;
 }
 
 .timeline-carousel .carousel-frame {
-  width: 280px;
-  min-height: 350px;
+  width: 95vw;
+  min-height: 220px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,10 +26,13 @@
   flex-direction: column;
   align-items: center;
   transition: opacity 0.6s;
-  width: 100%;
+  width: 95vw;
   position: absolute;
   left: 0;
   top: 0;
+  min-height: 220px;
+  border-radius: 12px;
+  padding: 0;
 }
 
 .timeline-carousel .carousel-item.active {
@@ -43,9 +46,9 @@
   color: #fff;
   border: none;
   border-radius: 50%;
-  font-size: 2em;
-  width: 44px;
-  height: 44px;
+  font-size: 1.5em;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
   transition: background 0.3s;
@@ -55,191 +58,86 @@
 .timeline-carousel .carousel-arrow:hover {
   background: #c2185b;
 }
-  .timeline-carousel h2 {
-    font-size: 2em;
-  }
 
-.carousel-item .caption {
-  font-size: 0.95em;
+.timeline-carousel h2 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-.timeline-section {
-  padding: 80px 20px;
-  background: #fff5f8;
-}
-
-.timeline-section h2 {
+/* العناوين والنصوص */
+h1, h2 {
   font-family: 'Great Vibes', cursive;
-  font-size: 3em;
+  font-size: 2em;
   color: #e91e63;
-  margin-bottom: 50px;
+  margin-bottom: 16px;
 }
 
-.timeline {
-  position: relative;
-  max-width: 700px;
-  margin: 0 auto;
-  padding-left: 20px;
-  border-left: 4px solid #e91e63;
-}
-
-.timeline-item {
-  margin-bottom: 40px;
-  position: relative;
-}
-
-.timeline-item::before {
-  content: "❤";
-  font-size: 20px;
-  color: #e91e63;
-  position: absolute;
-  left: -20px;
-  top: 0;
-}
-
-
-.timeline-date {
-  font-weight: bold;
-  color: #c2185b;
-  margin-bottom: 5px;
-  font-size: 1.2em;
-}
-
-.timeline-content {
+p, .fade-in-caption {
   font-size: 1.1em;
-  color: #555;
-  background: #ffffff;
-  padding: 15px 20px;
+  margin-bottom: 18px;
+  padding: 0 5vw;
+  line-height: 1.7;
+}
+
+.fade-in-caption {
+  font-family: 'Dancing Script', cursive;
+  color: #c2185b;
+}
+
+/* الصور */
+img.fade-in-image {
+  width: 90vw;
+  max-width: 95vw;
   border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  margin-bottom: 10px;
+  transition: transform 0.6s ease;
 }
 
-.fade-in-text {
-  margin-top: 40px;
-  opacity: 0;
-  transform: translateY(80px);
-  transition: all 1.2s ease;
-}
-
-.fade-in-text.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (max-width: 600px) {
-  .timeline {
-    padding-left: 10px;
-    border-left: 3px solid #e91e63;
-  }
-
-  .timeline-item::before {
-    left: -16px;
-    top: 2px;
-  }
-
-  .timeline-date {
-    font-size: 1em;
-  }
-
-  .timeline-content {
-    font-size: 1em;
-    padding: 12px 15px;
-  }
-
-  .timeline-section h2 {
-    font-size: 2em;
-  }
-}
-
-
-#scroll-hint {
+/* زر التشغيل */
+#play-btn {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
-  font-weight: bold;
-  text-align: center;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  animation: bounce 2s infinite;
+  padding: 10px 18px;
+  font-size: 1em;
+  background-color: #e91e63;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 6px 12px rgba(233, 30, 99, 0.5);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  z-index: 1000;
 }
 
-#scroll-hint .scroll-text {
-  font-size: 2rem; /* تم تكبيره */
-  color: #e91e63;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+#play-btn:hover {
+  background-color: #c2185b;
+  box-shadow: 0 8px 16px rgba(194, 24, 91, 0.7);
 }
 
-
-#scroll-hint .arrows {
-  display: flex;
-  flex-direction: row; /* <-- أفقياً */
-  justify-content: center;
-  align-items: center;
-  gap: 10px; /* مسافة بين الأسهم */
-  margin-top: 8px;
-  animation: arrows-bounce 1.5s infinite;
+#play-btn:focus {
+  box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.7);
 }
 
-#scroll-hint .arrows svg {
-  width: 28px;
-  height: 28px;
-}
-
-
-
-@keyframes arrows-bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(5px); }
-}
-
-#scroll-hint.hidden {
-  opacity: 0;
-}
-
-#scroll-hint {
+/* القلوب */
+canvas.hearts {
   position: fixed;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 1.5rem;
-  color: #e91e63;
-  animation: bounce 2s infinite;
-  opacity: 1;
-  transition: opacity 0.5s ease;
-  z-index: 9999; /* أعلى من الزر */
-  font-weight: bold;
+  top: 0;
+  left: 0;
   pointer-events: none;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  width: 100vw !important;
+  height: 100vh !important;
 }
 
-@keyframes bounce {
-  0%, 100% {
-    transform: translate(-50%, -50%) translateY(0);
-  }
-  50% {
-    transform: translate(-50%, -50%) translateY(-15px);
-  }
-}
-
-#scroll-hint.hidden {
-  opacity: 0;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Quicksand', sans-serif;
-  background: linear-gradient(to bottom, #fff0f5, #ffffff);
-  color: #444;
-  overflow-x: hidden;
-}
-
+/* الأقسام */
 section {
-  min-height: 100vh;
-  padding: 60px 20px;
+  min-height: auto;
+  padding: 30px 5vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -262,176 +160,65 @@ section {
   transform: translateY(0);
 }
 
-/* Image Styling */
-img.fade-in-image {
-  width: 250px;
-  max-width: 80%;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  margin-bottom: 10px;
-  transition: transform 0.6s ease;
-}
-
-/* Caption Font */
-.fade-in-caption {
-  font-family: 'Dancing Script', cursive;
-  font-size: 1.6em;
-  color: #c2185b;
-  margin-bottom: 50px;
-}
-
-/* Headers and Paragraphs */
-h1, h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  color: #e91e63;
-  margin-bottom: 20px;
-}
-
-p {
-  font-size: 1.3em;
-  max-width: 600px;
-  line-height: 1.8;
-}
-
-/* Floating Hearts Canvas */
-canvas.hearts {
-  position: fixed;
-  top: 0;
-  left: 0;
-  pointer-events: none;
-  z-index: 100;
-}
-#play-btn {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  background-color: #e91e63;
-  color: white;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  box-shadow: 0 6px 12px rgba(233, 30, 99, 0.5);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  outline: none;
-  z-index: 1000;
-}
-
-#play-btn:hover {
-  background-color: #c2185b;
-  box-shadow: 0 8px 16px rgba(194, 24, 91, 0.7);
-}
-
-#play-btn:focus {
-  box-shadow: 0 0 0 4px rgba(233, 30, 99, 0.7);
-}
-@media (max-width: 600px) {
-  .carousel-item {
-    width: 200px;
-  }
-
-  .timeline-carousel h2 {
-    font-size: 2em;
-  }
-
-  .carousel-item .caption {
-    font-size: 0.95em;
-  }
-}
-
-
-  p {
-    font-size: 1.1em;
-    padding: 0 10px;
-  }
-
-  #play-btn {
-    font-size: 1rem;
-    padding: 10px 20px;
-  }
-
-  #scroll-hint {
-    font-size: 1.2rem;
-    top: 30%; /* أقرب للأعلى على الموبايل */
-  }
-
-  img.fade-in-image {
-    width: 90%;
-    border-radius: 10px;
-  }
-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-.timeline-carousel {
-  padding: 60px 20px;
-  background: #fff5f8;
-}
-
-.timeline-carousel h2 {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3em;
-  color: #e91e63;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.carousel-container {
-  display: flex;
-  overflow-x: auto;
-  gap: 20px;
-  padding: 10px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
-
-.carousel-item {
-  flex: 0 0 auto;
-  width: 250px;
-  scroll-snap-align: start;
-  background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-  padding: 15px;
-  text-align: center;
-}
-
-.carousel-item img {
-  width: 100%;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
-}
-
-.carousel-item .caption {
-  font-size: 1em;
-  color: #c2185b;
-  font-family: 'Quicksand', sans-serif;
-  line-height: 1.5;
-}
-
+/* الكاروسيل داخل الميديا كويري */
 @media (max-width: 600px) {
   .timeline-carousel .carousel-bg {
-    max-width: 98vw;
-    padding: 15px 5px;
+    max-width: 99vw;
+    padding: 10px 2vw;
+    border-radius: 12px;
   }
   .timeline-carousel .carousel-frame {
-    width: 90vw;
-    min-height: 250px;
+    width: 95vw;
+    min-height: 220px;
+    padding: 0;
+  }
+  .timeline-carousel .carousel-item {
+    width: 95vw;
+    min-height: 220px;
+    border-radius: 12px;
+    padding: 0;
   }
   .timeline-carousel .carousel-item img {
     width: 90vw;
     max-width: 95vw;
     border-radius: 10px;
+    margin-bottom: 8px;
   }
   .timeline-carousel .carousel-arrow {
-    font-size: 1.5em;
-    width: 36px;
-    height: 36px;
+    font-size: 1.3em;
+    width: 32px;
+    height: 32px;
+  }
+  .timeline-carousel h2 {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+  .carousel-item .caption {
+    font-size: 1em;
+    padding: 0 8px;
+  }
+  section {
+    min-height: auto;
+    padding: 30px 5vw;
+  }
+  h1, h2 {
+    font-size: 2em;
+    margin-bottom: 12px;
+  }
+  p, .fade-in-caption {
+    font-size: 1em;
+    margin-bottom: 20px;
+    padding: 0 5vw;
+  }
+  #play-btn {
+    font-size: 1em;
+    padding: 10px 18px;
+    border-radius: 20px;
+  }
+  canvas.hearts {
+    width: 100vw !important;
+    height: 100vh !important;
   }
 }
+
+/* باقي التنسيقات كما هي ... */
