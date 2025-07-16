@@ -20,22 +20,33 @@ document.addEventListener('DOMContentLoaded', function () {
     showItem(current);
   });
 
-  // Swipe support (touch devices)
+  // دعم السحب للجوال
   let startX = null;
-  document.querySelector('.timeline-carousel .carousel-frame').addEventListener('touchstart', e => {
+  let isTouching = false;
+  const frame = document.querySelector('.timeline-carousel .carousel-frame');
+
+  frame.addEventListener('touchstart', e => {
+    isTouching = true;
     startX = e.touches[0].clientX;
   });
-  document.querySelector('.timeline-carousel .carousel-frame').addEventListener('touchend', e => {
-    if (startX === null) return;
+
+  frame.addEventListener('touchmove', e => {
+    if (!isTouching) return;
+    e.preventDefault();
+  }, { passive: false });
+
+  frame.addEventListener('touchend', e => {
+    if (!isTouching || startX === null) return;
     let endX = e.changedTouches[0].clientX;
-    if (endX - startX > 50) { // swipe right
+    if (endX - startX > 50) { // سحب يمين
       current = (current - 1 + items.length) % items.length;
       showItem(current);
-    } else if (startX - endX > 50) { // swipe left
+    } else if (startX - endX > 50) { // سحب يسار
       current = (current + 1) % items.length;
       showItem(current);
     }
     startX = null;
+    isTouching = false;
   });
 
   showItem(current);
