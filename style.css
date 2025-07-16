@@ -24,17 +24,14 @@
 }
 
 .timeline-item::before {
-  content: '';
+  content: "❤";
+  font-size: 20px;
+  color: #e91e63;
   position: absolute;
-  left: -10px;
-  top: 5px;
-  width: 20px;
-  height: 20px;
-  background-color: #e91e63;
-  border-radius: 50%;
-  border: 3px solid white;
-  box-shadow: 0 0 0 4px #f8bbd0;
+  left: -20px;
+  top: 0;
 }
+
 
 .timeline-date {
   font-weight: bold;
