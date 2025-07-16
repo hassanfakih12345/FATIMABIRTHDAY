@@ -61,6 +61,32 @@
   transform: translateY(0);
 }
 
+@media (max-width: 600px) {
+  .timeline {
+    padding-left: 10px;
+    border-left: 3px solid #e91e63;
+  }
+
+  .timeline-item::before {
+    left: -16px;
+    top: 2px;
+  }
+
+  .timeline-date {
+    font-size: 1em;
+  }
+
+  .timeline-content {
+    font-size: 1em;
+    padding: 12px 15px;
+  }
+
+  .timeline-section h2 {
+    font-size: 2em;
+  }
+}
+
+
 #scroll-hint {
   position: fixed;
   top: 50%;
