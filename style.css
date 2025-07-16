@@ -4,18 +4,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 40px auto;
+  margin: 40px auto 0 auto;
   width: 100%;
-  /* إذا أردت أن يكون في منتصف الشاشة دائماً أضف: */
   min-height: 60vh;
+  box-sizing: border-box;
 }
 
 .timeline-carousel .carousel-bg {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0;
   width: 100%;
+  position: relative;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  max-width: 100%;
 }
 
 .timeline-carousel .carousel-frame {
@@ -26,6 +32,7 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
+  box-sizing: border-box;
 }
 
 .timeline-carousel .carousel-item {
@@ -46,6 +53,17 @@
   display: flex;
   opacity: 1;
   position: relative;
+}
+
+/* صور الكاروسيل */
+.timeline-carousel .carousel-item img {
+  width: 60vw;
+  max-width: 320px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ضبط مكان الأسهم داخل الكاروسيل */
@@ -121,17 +139,6 @@ img.fade-in-image {
   margin-right: auto;
 }
 
-/* صور الكاروسيل */
-.timeline-carousel .carousel-item img {
-  width: 60vw;
-  max-width: 320px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 /* زر التشغيل */
 #play-btn {
   position: fixed;
@@ -201,22 +208,29 @@ section {
 /* الكاروسيل داخل الميديا كويري */
 @media (max-width: 600px) {
   .timeline-carousel {
-    margin: 30px auto;
+    margin: 30px auto 0 auto;
     width: 100vw;
     max-width: 100vw;
     min-height: 50vh;
   }
   .timeline-carousel .carousel-bg {
     width: 100vw;
-    justify-content: center;
-    align-items: center;
+    max-width: 100vw;
+    padding: 0;
+  }
+  .timeline-carousel .carousel-frame {
+    width: 100vw;
+    min-height: 180px;
+    padding: 0;
+  }
+  .timeline-carousel .carousel-item img {
+    width: 80vw;
+    max-width: 220px;
   }
   .timeline-carousel .carousel-arrow {
     font-size: 1.3em;
     width: 32px;
     height: 32px;
-    left: 4px;
-    right: 4px;
   }
   .timeline-carousel .carousel-arrow.left {
     left: 4px;
