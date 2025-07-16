@@ -110,6 +110,17 @@ img.fade-in-image {
   margin-right: auto;
 }
 
+/* صور الكاروسيل */
+.timeline-carousel .carousel-item img {
+  width: 60vw;
+  max-width: 320px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* زر التشغيل */
 #play-btn {
   position: fixed;
@@ -200,8 +211,8 @@ section {
     padding: 0;
   }
   .timeline-carousel .carousel-item img {
-    width: 90vw;
-    max-width: 95vw;
+    width: 80vw;
+    max-width: 220px;
     border-radius: 10px;
     margin-bottom: 8px;
     display: block;
