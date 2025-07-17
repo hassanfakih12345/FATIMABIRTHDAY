@@ -93,11 +93,11 @@
 }
 
 .timeline-carousel .carousel-arrow.left {
-  left: 2px; /* أقرب للصورة */
+  left: 0.5px; /* أقرب للصورة */
 }
 
 .timeline-carousel .carousel-arrow.right {
-  right: 2px; /* أقرب للصورة */
+  right: 0.5px; /* أقرب للصورة */
 }
 
 /* تأكد أن .carousel-bg و .carousel-frame position: relative */
