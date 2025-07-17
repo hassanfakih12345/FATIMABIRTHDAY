@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.timeline-carousel .carousel-item');
-  const leftBtn = document.querySelector('.timeline-carousel .carousel-arrow.left');
-  const rightBtn = document.querySelector('.timeline-carousel .carousel-arrow.right');
   let current = 0;
 
   function showItem(idx) {
@@ -10,17 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  leftBtn.addEventListener('click', () => {
-    current = (current - 1 + items.length) % items.length;
-    showItem(current);
-  });
-
-  rightBtn.addEventListener('click', () => {
-    current = (current + 1) % items.length;
-    showItem(current);
-  });
-
-  // دعم السحب للجوال
+  // دعم السحب للجوال فقط
   let startX = null;
   let isTouching = false;
   const frame = document.querySelector('.timeline-carousel .carousel-frame');
