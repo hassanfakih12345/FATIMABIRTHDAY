@@ -25,14 +25,15 @@
 }
 
 .timeline-carousel .carousel-frame {
-  width: 100%;
-  min-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  border: 3px solid #e91e63;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(233,30,99,0.08);
+  padding: 18px 0;
+  width: 65vw;
+  max-width: 350px;
+  margin: 0 auto;
   position: relative;
-  box-sizing: border-box;
 }
 
 .timeline-carousel .carousel-item {
@@ -67,9 +68,8 @@
 
 /* صور الكاروسيل */
 .timeline-carousel .carousel-item img {
-  width: 60vw;
-  max-width: 320px;
-  border-radius: 10px;
+  width: 90%;
+  max-width: 280px;
   margin-bottom: 4px; /* تقليل المسافة تحت الصورة */
   display: block;
   margin-left: auto;
@@ -108,11 +108,11 @@
 }
 
 .timeline-carousel .carousel-arrow.left {
-  left: 0.5px; /* أقرب للصورة */
+  left: -38px; /* بمحاذاة يسار الكادر */
 }
 
 .timeline-carousel .carousel-arrow.right {
-  right: 0.5px; /* أقرب للصورة */
+  right: -38px; /* بمحاذاة يمين الكادر */
 }
 
 /* تأكد أن .carousel-bg و .carousel-frame position: relative */
@@ -242,9 +242,9 @@ section {
     padding: 0;
   }
   .timeline-carousel .carousel-frame {
-    width: 100vw;
-    min-height: 180px;
-    padding: 0;
+    width: 90vw;
+    max-width: 95vw;
+    padding: 10px 0;
   }
   .timeline-carousel .carousel-item img {
     width: 80vw;
@@ -261,9 +261,9 @@ section {
     font-size: 1em;
   }
   .timeline-carousel .carousel-arrow.left {
-    left: 0;
+    left: -24px;
   }
   .timeline-carousel .carousel-arrow.right {
-    right: 0;
+    right: -24px;
   }
 }
