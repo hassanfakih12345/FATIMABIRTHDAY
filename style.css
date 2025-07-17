@@ -68,10 +68,15 @@
 
 /* نص الكاروسيل */
 .timeline-carousel .carousel-item .caption {
-  margin-top: 0;
-  margin-bottom: 4px; /* تقليل المسافة تحت النص */
-  font-size: 1em;
-  padding: 0 4vw;
+  font-family: 'Quicksand', 'Dancing Script', cursive, sans-serif;
+  font-weight: bold;
+  color: #ad1457; /* بنفسجي غامق أو اختر لون يناسبك مثل #e91e63 */
+  font-size: 1.08em;
+  margin-bottom: 2px;
+  margin-top: 4px;
+  text-align: center;
+  letter-spacing: 0.5px;
+  padding: 0 2vw;
 }
 
 /* الأسهم */
