@@ -280,7 +280,7 @@ section {
   width: 80%;
   margin-right: 15px;
   scroll-snap-align: start;
-  background: #222;
+  background: #ffffff;
   border-radius: 16px;
 }
 .carousel-item img {
@@ -301,4 +301,59 @@ section {
     opacity: 1;
     transform: translateY(0);
   }
+}
+.timeline-bar {
+  position: relative;
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  margin: 15px 20px 0 20px;
+}
+
+.timeline-track {
+  position: absolute;
+  height: 8px;
+  width: 100%;
+  background: #ccc;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+}
+
+.timeline-progress {
+  position: absolute;
+  height: 8px;
+  width: 0;
+  background: #e91e63;
+  border-radius: 4px;
+  top: 0;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.timeline-points {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.timeline-point {
+  width: 14px;
+  height: 14px;
+  background: #ccc;
+  border-radius: 50%;
+  pointer-events: auto;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.timeline-point.active {
+  background: #e91e63;
+  box-shadow: 0 0 8px rgba(233, 30, 99, 0.8);
 }

@@ -1,20 +1,28 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
   const items = document.querySelectorAll('.timeline-carousel .carousel-item');
   const leftBtn = document.querySelector('.carousel-arrow.left');
   const rightBtn = document.querySelector('.carousel-arrow.right');
+  const timelinePoints = document.querySelectorAll('.timeline-point');
+  const timelineProgress = document.querySelector('.timeline-progress');
+  const frame = document.querySelector('.timeline-carousel .carousel-frame');
+
   let current = 0;
+  let startX = null;
+  let isTouching = false;
 
   function showItem(idx) {
     items.forEach((item, i) => {
       item.classList.toggle('active', i === idx);
     });
+    timelinePoints.forEach((point, i) => {
+      point.classList.toggle('active', i === idx);
+    });
+    const progressPercent = (idx) / (items.length - 1) * 100;
+    timelineProgress.style.width = progressPercent + '%';
+    current = idx;
   }
 
   // دعم السحب للجوال فقط
-  let startX = null;
-  let isTouching = false;
-  const frame = document.querySelector('.timeline-carousel .carousel-frame');
-
   frame.addEventListener('touchstart', e => {
     isTouching = true;
     startX = e.touches[0].clientX;
@@ -49,8 +57,17 @@ document.addEventListener('DOMContentLoaded', function () {
     showItem(current);
   });
 
-  showItem(current);
-});
+  timelinePoints.forEach(point => {
+    point.addEventListener('click', () => {
+      const idx = parseInt(point.dataset.index, 10);
+      showItem(idx);
+    });
+  });
+
+   showItem(0);  // عرض أول صورة عند التحميل
+
+});  // نهاية الحدث DOMContentLoaded
+
 
 
 // إخفاء وإظهار scroll hint
@@ -143,4 +160,5 @@ if (audio && playBtn) {
       console.log('❌ خطأ في تشغيل الموسيقى:', error);
     });
   });
-}
+};
+
