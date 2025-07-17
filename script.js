@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.timeline-carousel .carousel-item');
+  const leftBtn = document.querySelector('.carousel-arrow.left');
+  const rightBtn = document.querySelector('.carousel-arrow.right');
   let current = 0;
 
   function showItem(idx) {
@@ -35,6 +37,16 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     startX = null;
     isTouching = false;
+  });
+
+  leftBtn.addEventListener('click', () => {
+    current = (current - 1 + items.length) % items.length;
+    showItem(current);
+  });
+
+  rightBtn.addEventListener('click', () => {
+    current = (current + 1) % items.length;
+    showItem(current);
   });
 
   showItem(current);
