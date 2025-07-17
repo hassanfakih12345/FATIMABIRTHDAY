@@ -68,9 +68,11 @@
 
 /* صور الكاروسيل */
 .timeline-carousel .carousel-item img {
-  width: 90%;
-  max-width: 280px;
-  margin-bottom: 4px; /* تقليل المسافة تحت الصورة */
+  width: 260px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 4px;
   display: block;
   margin-left: auto;
   margin-right: auto;
