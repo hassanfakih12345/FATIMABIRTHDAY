@@ -269,3 +269,36 @@ section {
     right: -24px;
   }
 }
+.horizontal-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 10px;
+}
+.carousel-item {
+  flex: 0 0 auto;
+  width: 80%;
+  margin-right: 15px;
+  scroll-snap-align: start;
+  background: #222;
+  border-radius: 16px;
+}
+.carousel-item img {
+  width: 100%;
+  border-radius: 16px 16px 0 0;
+}
+.caption {
+  padding: 10px;
+  color: #eee;
+}
+.fade-in-text {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease forwards;
+}
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
