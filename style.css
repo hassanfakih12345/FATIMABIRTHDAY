@@ -379,3 +379,8 @@ section {
   background: #e91e63;
   transform: scale(1.2);
 }
+
+.video-container {
+  position: relative;
+  z-index: 2;
+}
