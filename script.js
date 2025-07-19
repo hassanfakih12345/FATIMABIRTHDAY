@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     current = idx;
   }
 
-  // دعم السحب للجوال فقط
+  // دعم السحب للجوال
   frame.addEventListener('touchstart', e => {
     isTouching = true;
     startX = e.touches[0].clientX;
@@ -36,10 +36,10 @@ document.addEventListener('DOMContentLoaded', () => {
   frame.addEventListener('touchend', e => {
     if (!isTouching || startX === null) return;
     let endX = e.changedTouches[0].clientX;
-    if (endX - startX > 50) { // سحب يمين
+    if (endX - startX > 50) {
       current = (current - 1 + items.length) % items.length;
       showItem(current);
-    } else if (startX - endX > 50) { // سحب يسار
+    } else if (startX - endX > 50) {
       current = (current + 1) % items.length;
       showItem(current);
     }
@@ -47,15 +47,17 @@ document.addEventListener('DOMContentLoaded', () => {
     isTouching = false;
   });
 
-  leftBtn.addEventListener('click', () => {
-    current = (current - 1 + items.length) % items.length;
-    showItem(current);
-  });
+  if (leftBtn && rightBtn) {
+    leftBtn.addEventListener('click', () => {
+      current = (current - 1 + items.length) % items.length;
+      showItem(current);
+    });
 
-  rightBtn.addEventListener('click', () => {
-    current = (current + 1) % items.length;
-    showItem(current);
-  });
+    rightBtn.addEventListener('click', () => {
+      current = (current + 1) % items.length;
+      showItem(current);
+    });
+  }
 
   timelinePoints.forEach(point => {
     point.addEventListener('click', () => {
@@ -64,101 +66,104 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-   showItem(0);  // عرض أول صورة عند التحميل
+  showItem(0); // عرض أول صورة عند التحميل
 
-});  // نهاية الحدث DOMContentLoaded
+  // ===== Scroll Fade-in Effect =====
+  const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
 
-
-
-// إخفاء وإظهار scroll hint
-const scrollHint = document.getElementById('scroll-hint');
-if (scrollHint) {
-  window.addEventListener('scroll', () => {
-    const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    if (scrollPercent > 0.1) {
-      scrollHint.classList.add('hidden');
-    } else {
-      scrollHint.classList.remove('hidden');
-    }
-  });
-}
-
-// Floating hearts animation (مرة واحدة فقط)
-const canvas = document.querySelector('.hearts');
-if (canvas) {
-  const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
-  const hearts = [];
-
-  function Heart() {
-    this.x = Math.random() * canvas.width;
-    this.y = canvas.height + Math.random() * 100;
-    this.size = 15 + Math.random() * 10;
-    this.speed = 1 + Math.random();
-    this.alpha = 0.5 + Math.random() * 0.5;
+  function checkFadeIn() {
+    fadeIns.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) {
+        el.classList.add("show");
+        console.log("عنصر ظهر:", el);
+      }
+    });
   }
 
-  Heart.prototype.draw = function () {
-    ctx.globalAlpha = this.alpha;
-    ctx.fillStyle = 'pink';
-    ctx.beginPath();
-    ctx.moveTo(this.x, this.y);
-    ctx.bezierCurveTo(this.x + this.size, this.y - this.size,
-      this.x + this.size * 2, this.y + this.size,
-      this.x, this.y + this.size * 2);
-    ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size,
-      this.x - this.size, this.y - this.size,
-      this.x, this.y);
-    ctx.fill();
-  };
+  // ✅ تشغيل التحقق عند تحميل الصفحة + أثناء التمرير
+  window.addEventListener("load", checkFadeIn);
+  window.addEventListener("scroll", checkFadeIn);
 
-  Heart.prototype.update = function () {
-    this.y -= this.speed;
-    if (this.y < -this.size * 2) {
-      this.y = canvas.height + Math.random() * 100;
+  // ===== تشغيل الموسيقى =====
+  const audio = document.getElementById('bg-music');
+  const playBtn = document.getElementById('play-btn');
+  if (audio && playBtn) {
+    playBtn.addEventListener('click', () => {
+      audio.play().then(() => {
+        playBtn.style.display = 'none';
+        console.log('✅ الموسيقى شغّلت');
+      }).catch((error) => {
+        console.log('❌ خطأ في تشغيل الموسيقى:', error);
+      });
+    });
+  }
+
+  // ===== Scroll Hint (اختياري) =====
+  const scrollHint = document.getElementById('scroll-hint');
+  if (scrollHint) {
+    window.addEventListener('scroll', () => {
+      const scrollPercent = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+      if (scrollPercent > 0.1) {
+        scrollHint.classList.add('hidden');
+      } else {
+        scrollHint.classList.remove('hidden');
+      }
+    });
+  }
+
+  // ===== Floating Hearts =====
+  const canvas = document.querySelector('.hearts');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const hearts = [];
+
+    function Heart() {
       this.x = Math.random() * canvas.width;
+      this.y = canvas.height + Math.random() * 100;
+      this.size = 15 + Math.random() * 10;
+      this.speed = 1 + Math.random();
+      this.alpha = 0.5 + Math.random() * 0.5;
     }
-  };
 
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    while (hearts.length < 20) {
-      hearts.push(new Heart());
+    Heart.prototype.draw = function () {
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = 'pink';
+      ctx.beginPath();
+      ctx.moveTo(this.x, this.y);
+      ctx.bezierCurveTo(this.x + this.size, this.y - this.size,
+        this.x + this.size * 2, this.y + this.size,
+        this.x, this.y + this.size * 2);
+      ctx.bezierCurveTo(this.x - this.size * 2, this.y + this.size,
+        this.x - this.size, this.y - this.size,
+        this.x, this.y);
+      ctx.fill();
+    };
+
+    Heart.prototype.update = function () {
+      this.y -= this.speed;
+      if (this.y < -this.size * 2) {
+        this.y = canvas.height + Math.random() * 100;
+        this.x = Math.random() * canvas.width;
+      }
+    };
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      while (hearts.length < 20) {
+        hearts.push(new Heart());
+      }
+      hearts.forEach(h => {
+        h.update();
+        h.draw();
+      });
+      requestAnimationFrame(animate);
     }
-    hearts.forEach(h => {
-      h.update();
-      h.draw();
-    });
-    requestAnimationFrame(animate);
+
+    animate();
   }
 
-  animate();
-}
-
-const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
-
-window.addEventListener("scroll", () => {
-  fadeIns.forEach(el => {
-    const top = el.getBoundingClientRect().top;
-    if (top < window.innerHeight - 100) {
-      el.classList.add("show");
-    }
-  });
 });
-
-// تشغيل الموسيقى عند الضغط فقط
-const audio = document.getElementById('bg-music');
-const playBtn = document.getElementById('play-btn');
-if (audio && playBtn) {
-  playBtn.addEventListener('click', () => {
-    audio.play().then(() => {
-      playBtn.style.display = 'none';
-      console.log('✅ الموسيقى شغّلت');
-    }).catch((error) => {
-      console.log('❌ خطأ في تشغيل الموسيقى:', error);
-    });
-  });
-};
-
