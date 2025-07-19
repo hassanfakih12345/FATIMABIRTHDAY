@@ -137,15 +137,15 @@ if (canvas) {
   animate();
 }
 
-// Scroll Reveal for Elements
 const fadeIns = document.querySelectorAll(".fade-in-image, .fade-in-caption, .fade-in-text");
+
 window.addEventListener("scroll", () => {
   fadeIns.forEach(el => {
     const top = el.getBoundingClientRect().top;
     if (top < window.innerHeight - 100) {
       el.classList.add("show");
-    }
-  });
+    }
+  });
 });
 
 // تشغيل الموسيقى عند الضغط فقط

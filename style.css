@@ -214,7 +214,21 @@ section {
   text-align: center;
   justify-content: center;
 }
+.fade-in-text,
+.fade-in-image,
+.fade-in-caption {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+  will-change: transform, opacity;
+}
 
+.fade-in-text.show,
+.fade-in-image.show,
+.fade-in-caption.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 /* Scroll-in Animations */
 .fade-in-image,
 .fade-in-caption,
