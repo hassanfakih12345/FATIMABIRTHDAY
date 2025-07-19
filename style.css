@@ -97,30 +97,17 @@
 
 /* الأسهم */
 .timeline-carousel .carousel-arrow {
-  background: #e91e63;
-  color: #fff;
-  border: none;
-  border-radius: 50%;
-  font-size: 1.2em;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
-  transition: background 0.3s;
-  z-index: 2;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 45%;
+  z-index: 3;
 }
 
+
 .timeline-carousel .carousel-arrow.left {
-  left: 0px;
-  /* بمحاذاة يسار الكادر */
+  left: 10px;
 }
 
 .timeline-carousel .carousel-arrow.right {
-  right: 0px;
-  /* بمحاذاة يمين الكادر */
+  right: 10px;
 }
 
 /* تأكد أن .carousel-bg و .carousel-frame position: relative */
