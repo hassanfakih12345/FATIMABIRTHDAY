@@ -167,3 +167,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
+const introScreen = document.getElementById('intro-screen');
+const startSection = document.getElementById('start');
+
+if (playBtn && introScreen && startSection) {
+  playBtn.addEventListener('click', () => {
+    audio.play().then(() => {
+      playBtn.style.display = 'none';
+      introScreen.classList.add('hidden');
+
+      // Scroll للنقطة الأولى بعد إخفاء شاشة البداية
+      setTimeout(() => {
+        startSection.scrollIntoView({ behavior: 'smooth' });
+      }, 400);
+    }).catch((error) => {
+      console.log('❌ خطأ في تشغيل الموسيقى:', error);
+    });
+  });
+}

@@ -357,3 +357,24 @@ section {
   background: #e91e63;
   transform: scale(1.2);
 }
+#intro-screen {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(to bottom right, #f8bbd0, #f48fb1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  transition: opacity 0.8s ease;
+}
+
+#intro-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#play-btn {
+  z-index: 1000;
+  position: relative;
+}
