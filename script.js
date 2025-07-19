@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-   showItem(0);  // عرض أول صورة عند التحميل
+  showItem(0);  // عرض أول صورة عند التحميل
 
 });  // نهاية الحدث DOMContentLoaded
 
