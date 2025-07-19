@@ -303,3 +303,57 @@ section {
     transform: translateY(0);
   }
 }
+.timeline-bar {
+  position: relative;
+  width: 100%;
+  height: 12px;
+  background: #f8bbd0; /* لون خلفية الشريط */
+  border-radius: 6px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.timeline-track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f8bbd0;
+  z-index: 1;
+}
+
+.timeline-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: #e91e63;
+  transition: width 0.4s ease;
+  z-index: 2;
+}
+
+.timeline-points {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 3;
+  margin-top: -16px; /* لتظهر فوق الشريط */
+  padding: 0 10px;
+}
+
+.timeline-point {
+  width: 14px;
+  height: 14px;
+  background: #fff;
+  border: 2px solid #e91e63;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.timeline-point.active {
+  background: #e91e63;
+  transform: scale(1.2);
+}
