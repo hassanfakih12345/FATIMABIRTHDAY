@@ -212,14 +212,9 @@ canvas.hearts {
 
 /* الأقسام */
 section {
-  min-height: auto;
-  padding: 30px 5vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+  padding: 30px 4vw;
 }
+
 
 /* Scroll-in Animations */
 .fade-in-image,
@@ -253,15 +248,13 @@ section {
   }
 
   .timeline-carousel .carousel-frame {
-    width: 90vw;
-    max-width: 95vw;
+    width: 95vw;
     padding: 10px 0;
   }
 
   .timeline-carousel .carousel-item img {
-    width: 80vw;
+    width: 90%;
     max-width: 220px;
-    margin-bottom: 2px;
   }
 
   .timeline-carousel .carousel-item .caption {
@@ -283,6 +276,7 @@ section {
     right: 6px;
   }
 }
+
 
 .horizontal-scroll {
   display: flex;
@@ -381,6 +375,37 @@ section {
 }
 
 .video-container {
-  position: relative;
-  z-index: 2;
+  max-width: 95vw;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.video-container video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+body {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+
+  h1, h2 {
+    font-size: 1.6em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+img, video {
+  max-width: 100%;
+  height: auto;
 }
