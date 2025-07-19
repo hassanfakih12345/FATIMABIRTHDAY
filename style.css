@@ -214,19 +214,19 @@ section {
   text-align: center;
   justify-content: center;
 }
-/* ===== Scroll Fade-in Effect ===== */
-.fade-in-text,
+
+/* Scroll-in Animations */
 .fade-in-image,
-.fade-in-caption {
+.fade-in-caption,
+.fade-in-text {
   opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.9s ease-out;
-  will-change: transform, opacity;
+  transform: translateY(50px);
+  transition: all 1.2s ease;
 }
 
-.fade-in-text.show,
 .fade-in-image.show,
-.fade-in-caption.show {
+.fade-in-caption.show,
+.fade-in-text.show {
   opacity: 1;
   transform: translateY(0);
 }
@@ -356,25 +356,4 @@ section {
 .timeline-point.active {
   background: #e91e63;
   transform: scale(1.2);
-}
-#intro-screen {
-  position: fixed;
-  inset: 0;
-  background: linear-gradient(to bottom right, #f8bbd0, #f48fb1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  flex-direction: column;
-  transition: opacity 0.8s ease;
-}
-
-#intro-screen.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-#play-btn {
-  z-index: 1000;
-  position: relative;
 }
