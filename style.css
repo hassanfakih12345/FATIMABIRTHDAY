@@ -40,7 +40,7 @@
   display: none;
   flex-direction: column;
   align-items: center;
-  width: 95vw;
+  width: 100%;
   position: absolute;
   left: 0;
   top: 0;
@@ -160,7 +160,7 @@ p,
 /* الصور */
 img.fade-in-image {
   width: 90vw;
-  max-width: 95vw;
+  max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
@@ -248,7 +248,7 @@ section {
   }
 
   .timeline-carousel .carousel-frame {
-    width: 95vw;
+    width: 100%;
     padding: 10px 0;
   }
 
@@ -375,7 +375,7 @@ section {
 }
 
 .video-container {
-  max-width: 95vw;
+  max-width: 100%;
   width: 100%;
   margin: auto;
   display: flex;
@@ -394,8 +394,10 @@ body {
 
 @media (max-width: 768px) {
   body {
-    font-size: 15px;
-  }
+  font-size: 16px;
+  overflow-x: hidden;
+}
+
 
   h1, h2 {
     font-size: 1.6em;
