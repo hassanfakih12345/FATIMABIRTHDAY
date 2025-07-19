@@ -114,12 +114,12 @@
 }
 
 .timeline-carousel .carousel-arrow.left {
-  left: -38px;
+  left: -20px;
   /* بمحاذاة يسار الكادر */
 }
 
 .timeline-carousel .carousel-arrow.right {
-  right: -38px;
+  right: -20px;
   /* بمحاذاة يمين الكادر */
 }
 
