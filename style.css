@@ -97,10 +97,21 @@
 
 /* الأسهم */
 .timeline-carousel .carousel-arrow {
-  top: 45%;
+  background: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2em;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.15);
+  transition: background 0.3s;
   z-index: 3;
+  position: absolute;
+  top: 45%;
+  transform: translateY(-50%);
 }
-
 
 .timeline-carousel .carousel-arrow.left {
   left: 10px;
@@ -265,11 +276,11 @@ section {
   }
 
   .timeline-carousel .carousel-arrow.left {
-    left: -24px;
+    left: 6px;
   }
 
   .timeline-carousel .carousel-arrow.right {
-    right: -24px;
+    right: 6px;
   }
 }
 
